@@ -1,0 +1,49 @@
+Feature Selection:
+
+Univariate Feature Selection method was hired to select the finest features in the datasets. Univariate Feature Selection works by picking out the best features grounded on 
+univariate statistical tests. We liken each feature to the target variable, to see if there is any statistically substantial relationship between them. It is also called 
+Analysis of Variance (ANOVA). When we analyse the connection amongst one feature and the target variable, we overlook the other features. Each feature has its test score. 
+To finish, all the test scores are compared, and the features with top scores will be selected. 
+
+In this application, Univariate Selection was executed through the use of Python language. The python modules of SelectKBest and f_classif were used. SelectKBest will choose the
+features according to the k highest scores whereas f_classif will calculate the ANOVA f-value for the provided sample. For each of the 15 sections of the first dataset, we 
+figured the features and later, they were joined together into a single feature for the first dataset. The datasets were fragmented into random training and testing data using 
+the python module of train_test_split. For the second and third datasets, aside from the above-mentioned processes, the score of fitting the model was also calculated which 
+provided us with exceptional outcomes. With these, we saw that the features fit the model in a good manner. 
+
+
+
+
+Comorbidity Extraction:
+
+Comorbidity has also been used to convey the idea of burden of illness or disease, defined by the total burden of physiological dysfunction or the total burden of types of 
+illnesses partaking an influence on an individual’s physiologic reserve. In the first dataset, we abstract the ECG values and compute the Heart Rate from the ECG values.
+0.1 mV ECG = 1 mm = 0.04 sec. After altering to seconds, we double it and then convert it to minutes, to get the number of beats per minute. 60-100 beats per minute is the 
+normal range. Less than that produces an ailment called Bradycardia and more than that produces an ailment called Tachycardia.
+
+For the second and third datasets, to extract comorbidities, we analyse if there are any duplicate data, ignoring the column selected. This is because for the second dataset, 
+we do not know the conditions of each individual patient, and for the third dataset, again, we do not have any specific identity for the patient. Therefore, we take that if 
+duplicate data is present, then it means that there exists a comorbidity. Here, we keep the duplicate data in a separate dataset called duplicate. If the duplicate dataset is
+not null, then there exists duplicate data, and hence exists a comorbidity. Otherwise, if the duplicate dataset is null, then no comorbidity exists.
+
+
+
+
+Results:
+
+we can see that for all the datasets, null hypothesis was accepted and the alternate hypothesis was rejected. We compared the mean of each of the features with each of the 
+values in the corresponding features for every dataset. Student’s t-test method was chosen as the Hypothesis Testing method. The null hypothesis and alternate hypothesis 
+chosen are – 
+H0: P-value is greater than 0.05 (Null Hypothesis)
+H1: P-value is less than 0.05 (Alternate Hypothesis)
+
+After finding the p-value for the datasets, we applied 95% confidence limit on the datasets and found that for each of the datasets, the p-values turned out to be 1. Therefore,
+for each of the datasets, the Null Hypothesis turned out to be true. Hence, for every dataset, the Alternate Hypothesis was rejected and the Null Hypothesis was accepted. 
+
+In the first dataset, most of the patients tested out with comorbidities. The heart rate between 60-100 is thought of as normal. The heart rate less than 60 is a condition 
+called Bradycardia (Slow Heart) and that above 100 is called Tachycardia (Fast Heart). Along with Bradycardia, other diseases include Sick Sinus Syndrome, Hyperkalaemia etc. 
+while along with Tachycardia, other diseases include Cardiomyopathy, Atrial Fibrillation, Hypokalaemia etc. Out of the 15 patients, patients 3,9 and 11 had no comorbidity, 
+whereas all the other patients had Bradycardia (Slow Heart), Sick Sinus Syndrome and Hyperkalaemia. For the second and third datasets, we are not given if the data belongs to 
+one patient or more than one patient. So, we check the duplicate data to see if the same patient is registered under two different diseases. To check if the patient is the 
+same or not, we check the other details of the patient, such as Year, Place, PQI, Disease Name, Age etc. and check if there is any duplicate data.  No duplicate data was 
+generated for both the second and third datasets; hence, we can say that no one suffers from comorbidities in datasets two and three. 
