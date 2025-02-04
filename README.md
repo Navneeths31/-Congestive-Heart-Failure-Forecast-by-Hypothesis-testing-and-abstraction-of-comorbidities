@@ -4,4 +4,4 @@ In this study, we see the outcome of Hypothesis Testing on a given data and see 
 
 We apply Hypothesis Testing on these data by associating the average of the features with the p-value of each of the features and check if they satisfy the 95% confidence interval. Student’s t-test Hypothesis Testing method was chosen. We see that all the features accepted the Null Hypothesis that is, none of them satisfy the 95% confidence limit. Along with that, a list of comorbidities existing in the data were also found. 
 
-(The code for this project has not been shared under the strict instruction of my professor)
+(The code for this project has not been shared under the strict instruction of my professor to reduce plagiarism since this was part of my mid-term examination)
